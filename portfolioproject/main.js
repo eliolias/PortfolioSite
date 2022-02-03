@@ -2,6 +2,7 @@ import './style.css'
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 //scene, camera, renderer
 const scene = new THREE.Scene();
 
@@ -39,6 +40,16 @@ scene.add(lightHelper, gridHelper)
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
+//trees
+// const gLoader = new GLTFLoader();
+// gLoader.load( 'models/trees_and_foliage/scene.gltf', function(gltf) {
+//   scene.add(gltf.scene);
+// }, undefined, function ( error) {
+//   console.error(error);
+// });
+
+
+
 //stars
 
 const addStar = () => {
@@ -52,6 +63,9 @@ const addStar = () => {
   scene.add(star)
 }
 Array(500).fill().forEach(addStar)
+//
+const spaceTexture = new THREE.TextureLoader().load('photos/space.jpg');
+scene.background = spaceTexture;
 
 
 //Animating
