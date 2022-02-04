@@ -3,6 +3,30 @@ import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+//Getting page to resize 
+//This solution refreshes the whole page which I dont like.
+window.onresize = function(){ location.reload(); }
+
+//This solution stretches the canvas Which I also dont like
+// const windowResize = () => {
+//   const canvas = document.getElementById('bg');
+//   canvas.width = window.innerWidth;
+//   canvas.style.width = "inherit";
+//   canvas.height = window.innerHeight;
+//   canvas.style.height = "inherit";
+//  renderer.setPixelRatio(window.devicePixelRatio);
+//  renderer.setSize( window.innerWidth, window.innerHeight );
+//  camera.position.setZ(50);
+// renderer.render( scene, camera);
+//}
+
+// const windowResize = () => {
+// renderer.setPixelRatio(window.devicePixelRatio);
+// renderer.setSize( window.innerWidth, window.innerHeight );
+//}
+//window.addEventListener('resize', windowResize)
+
+
 //scene, camera, renderer
 const scene = new THREE.Scene();
 
@@ -13,9 +37,13 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 
+
+
+
+
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize( window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
+camera.position.setZ(50);
 
 renderer.render( scene, camera);
 //torus model
