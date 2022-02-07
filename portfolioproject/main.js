@@ -133,5 +133,22 @@ const animate = () => {
 
 animate()
 
+moon.position.z = 30;
+moon.position.setX(-10);
 
+const moveCamera = () => {
+  const t = document.body.getBoundingClientRect().top;
+  moon.rotation.x += 0.05;
+  moon.rotation.y += 0.075;
+  moon.rotation.z += 0.05;
+
+  elias.rotation.y += 0.01;
+  elias.rotation.z += 0.01;
+
+  camera.position.z = t * -0.01;
+  camera.position.x = t * -0.0002;
+  camera.rotation.y = t * -0.0002;
+}
+
+document.body.onscroll = moveCamera
 //scene.add(torus, pointLight, ambientLight, lightHelper)
