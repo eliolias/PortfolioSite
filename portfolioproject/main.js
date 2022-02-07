@@ -76,6 +76,28 @@ const controls = new OrbitControls(camera, renderer.domElement);
 //   console.error(error);
 // });
 
+//Avatar
+const eliasTexture = new THREE.TextureLoader().load('photos/PROFILEPIC.jpg');
+
+const elias  = new THREE.Mesh(
+  new THREE.BoxGeometry(3,3,3),
+  new THREE.MeshBasicMaterial({ map: eliasTexture })
+);
+
+scene.add(elias)
+
+//Moon
+const moonTexture =  new THREE.TextureLoader().load('/photos/moon.jpg');
+const normalTexture = new THREE.TextureLoader().load('photos/normal.jpg');
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture
+  })
+);
+scene.add(moon)
 
 
 //stars
